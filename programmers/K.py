@@ -9,5 +9,4 @@ def solution(array, commands):
         wtf = array[i-1:j]
         wtf.sort()
         answer.append(wtf[k-1])
-    print(answer)
     return answer
