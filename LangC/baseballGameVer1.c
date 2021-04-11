@@ -1,6 +1,6 @@
 //야구게임 (2021.04.09 새벽)
 
-//#include <stdlib.h>  //하단의 system을 위해 추가한 것
+#include <stdlib.h>  //하단의 system을 위해 추가한 것 + rand함수 사용을 위해 필요!
 #include <stdio.h>
 #include <time.h>
 
