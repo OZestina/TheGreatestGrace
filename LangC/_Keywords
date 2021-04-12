@@ -1,0 +1,36 @@
+//C언어에서 이미 기능적인 의미가 정해져 있는 단어들
+//대소문자 주의!
+
+auto
+_Bool
+break //현재 loop를 벗어나라~는 의미
+case
+char  //문자 저장 시 (n바이트)
+_Complex
+const //
+continue  //loop를 지나쳐 계속 실행하라~는 의미
+default
+do  //do~while문
+double  //n바이트 실수 (소수)
+else  //if~else의 그 else
+enum
+extern
+float //n바이트 실수 (소수)
+for //for loop문
+goto  //
+if  //if문
+_Imaginary
+return  //함수의 반환값
+restrict
+short //
+signed  //
+sizeof  //배열 등의 크기를 구할 때 사용 - 바이트의 크기!
+static
+struct  //구조체 선언 시 사용
+switch
+typedef //
+union //
+unsigned  //
+void  //함수의 입력값이나 반환값이 없을 때 사용
+volatile
+while //shile loop문
