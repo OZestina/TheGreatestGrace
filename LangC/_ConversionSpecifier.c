@@ -10,5 +10,5 @@ int main(void)
 	return 0;
 }
 
-
+//%f 10진수 실수 형태의 출력 (
 
