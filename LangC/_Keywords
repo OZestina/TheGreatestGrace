@@ -5,26 +5,26 @@ auto
 _Bool
 break //현재 loop를 벗어나라~는 의미
 case
-char  //문자 저장 시 (n바이트)
+char  //문자 데이터 표현 시 사용하는 자료형 (1바이트)
 _Complex
 const //
 continue  //loop를 지나쳐 계속 실행하라~는 의미
 default
 do  //do~while문
-double  //n바이트 실수 (소수)
+double  //실수 데이터 표현 시 사용하는 자료형 (8바이트)
 else  //if~else의 그 else
 enum
 extern
-float //n바이트 실수 (소수)
+float //실수 데이터 표현 시 사용하는 자료형 (4바이트)
 for //for loop문
 goto  //
 if  //if문
 _Imaginary
 return  //함수의 반환값
 restrict
-short //
+short //정수 데이터 표현 시 사용하는 자료형 (2바이트)
 signed  //
-sizeof  //배열 등의 크기를 구할 때 사용 - 바이트의 크기!
+sizeof  //(연산자!) 소모하는 메모리의 크기를 바이트 단위로 계산하여 반환. 변수, 상수, 자료형의 이름도 올 수 있다
 static
 struct  //구조체 선언 시 사용
 switch
