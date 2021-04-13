@@ -75,3 +75,117 @@ int main(void)
 	return 0;
 }
 
+/*
+5. 비트 연산자
+& (비트단위 AND) // 1&1만 1로 반환
+| (비트단위 OR)
+^ (비트단위 XOR) // 두 개의 비트가 서로 다른 경우에 1을 반환
+~ (보수연산, 피연산자의 모든 비트를 반전시킨다) // ~num : num은 변화 없이 반전 결과만 반환
+<< (피연산자의 비트열을 왼쪽으로 이동) // num<< : num은 변화 없이 두 칸 왼쪽 이동 결과만 반환 // 1칸 왼쪽 이동 시마다 두 배가 됨!
+>> (피연산자의 비트열을 오른쪽으로 이동) // num>> : num은 변화 없이 두 칸 오른쪽 이동 결과만 반환 // 1칸 오른쪽 이동 시마다 2로 나눠짐!
+*/
+
+// & (비트단위 AND)
+#include <stdio.h>
+int main(void)
+{
+	int num1 = 15;		// 00001111
+	int num2 = 20;		// 00010100
+	int num3 = num1 & num2;	// 00000100 (4)
+	printf("AND 연산의 결과: %d \n", num3);
+	return 0;
+}
+
+// | (비트단위 OR)
+#include <stdio.h>
+int main(void)
+{
+	int num1 = 15;		// 00001111
+	int num2 = 20;		// 00010100
+	int num3 = num1 | num2;	// 00011111 (31)
+	printf("OR 연산의 결과: %d \n", num3);
+	return 0;
+}
+
+// ^ (비트단위 XOR)
+#include <stdio.h>
+int main(void)
+{
+	int num1 = 15;		// 00001111
+	int num2 = 20;		// 00010100
+	int num3 = num1 ^ num2;	// 00011011 (27)
+	printf("XOR 연산의 결과: %d \n", num3);
+	return 0;
+}
+
+// ~ (비트단위 보수연산)
+#include <stdio.h>
+int main(void)
+{
+	int num1 = 15;			// 00001111 (15)
+	int num2 = ~num1;		// 11110000 (-16)
+	int num3 = ~num2;		// 00001111 (15)
+	printf("NOT 연산의 결과: %d %d \n", num2, num3);
+	return 0;
+}
+
+// << (피연산자의 비트열을 왼쪽으로 이동)
+#include <stdio.h>
+int main(void)
+{
+	int num1 = 15;		// 00001111 (15)
+	int result1 = num1<<1;	// 00011110 (30)
+	int result2 = num1<<2;	// 00111100 (60)
+	int result3 = num1<<3;	// 01111000 (120)
+
+	printf("1칸 왼쪽 이동 결과: %d \n", result1);
+	printf("2칸 왼쪽 이동 결과: %d \n", result2);
+	printf("3칸 왼쪽 이동 결과: %d \n", result3);
+	return 0;
+}
+
+// 음수일 경우도 같음!
+#include <stdio.h>
+int main(void)
+{
+	int num1 = -15;		// 11110001 (-15)
+	int result1 = num1<<1;	// 11100010 (-30)
+	int result2 = num1<<2;	// 11000100 (-60)
+	int result3 = num1<<3;	// 10001000 (-120)
+
+	printf("1칸 왼쪽 이동 결과: %d \n", result1);
+	printf("2칸 왼쪽 이동 결과: %d \n", result2);
+	printf("3칸 왼쪽 이동 결과: %d \n", result3);
+	return 0;
+}
+
+// >> (피연산자의 비트열을 오른쪽으로 이동)
+#include <stdio.h>
+int main(void)
+{
+	int num1 = 48;		// 00110000 (48)
+	int result1 = num1>>1;	// 00011000 (24)
+	int result2 = num1>>2;	// 00001100 (12)
+	int result3 = num1>>3;	// 00000110 (6)
+
+	printf("1칸 오른쪽 이동 결과: %d \n", result1);
+	printf("2칸 오른쪽 이동 결과: %d \n", result2);
+	printf("3칸 오른쪽 이동 결과: %d \n", result3);
+	return 0;
+}
+
+// 음의 경우에는, CPU에 따라 값이 달라질 수 있다
+// 내 컴퓨터는 왼쪽에 생긴 빈 칸을 1로 채워서 음의 값을 유지하면서 절반 값으로 연산된다!
+#include <stdio.h>
+int main(void)
+{
+	int num1 = -48;		// 00110000 (-48)
+	int result1 = num1>>1;	// 00011000 (-24)
+	int result2 = num1>>2;	// 00001100 (-12)
+	int result3 = num1>>3;	// 00000110 (-6)
+
+	printf("1칸 오른쪽 이동 결과: %d \n", result1);
+	printf("2칸 오른쪽 이동 결과: %d \n", result2);
+	printf("3칸 오른쪽 이동 결과: %d \n", result3);
+	return 0;
+}
