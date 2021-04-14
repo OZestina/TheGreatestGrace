@@ -11,11 +11,11 @@ const //
 continue  //loop를 지나쳐 계속 실행하라~는 의미
 default
 do  //do~while문
-double  //실수 데이터 표현 시 사용하는 자료형 (8바이트)
+double  //실수 데이터 표현 시 사용하는 자료형 (8바이트, 소수점 15자리) - long double은 12바이트, 소수점 18자리
 else  //if~else의 그 else
 enum
 extern
-float //실수 데이터 표현 시 사용하는 자료형 (4바이트)
+float //실수 데이터 표현 시 사용하는 자료형 (4바이트, 소수점 6자리)
 for //for loop문
 goto  //
 if  //if문
