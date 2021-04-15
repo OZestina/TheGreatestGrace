@@ -7,7 +7,20 @@ break //현재 loop를 벗어나라~는 의미
 case
 char  //문자 데이터 표현을 위해 정의된 자료형 (1바이트)
 _Complex
-const //
+const   //이름을 지니는 심볼릭(symbolic) 상수를 const 상수라 함
+        // 1) 'const' 키워드 사용: 변수 선언 시 const 선언 추가 및 선언과 동시에 초기화 (상수이므로!) 초기화되면 값을 변경할 수 "없다"
+                                // (관례) 상수의 이름은 모두 대문자로 표기, 띄어쓰기는 언더바(_)로 표시
+
+                #include <stdio.h>
+                int main()
+                {
+                        const int MAX = 100;
+                        const double PI_VALUE = 3.1415;
+                        return 0;
+                }
+                
+        // 2) 매크로 이용
+        
 continue  //loop를 지나쳐 계속 실행하라~는 의미
 default
 do  //do~while문
