@@ -10,8 +10,8 @@ int main(void)
 	double d4=1.23e-6;	//0.00000123
 
 	printf("%g \n", d1);	//%f
-	printf("%g \n", d2);	//%f
+	printf("%G \n", d2);	//%f
 	printf("%g \n", d3);	//%e
-	printf("%g \n", d4);	//%e
+	printf("%G \n", d4);	//%E (대문자)
 	return 0;
 }
