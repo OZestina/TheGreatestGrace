@@ -27,3 +27,18 @@ int main()
 
 	return 0;
 }
+
+// 아니면 연산 시 값 하나를 형 변환 시켜주면 된다
+// 변수 앞에 소괄호로 형 변환 연산자(type casting operator)를 사용해 형 변환
+
+#include <stdio.h>
+
+int main()
+{
+	int num1=3, num2=4;
+	double divResult;
+	divResult = (double)num1/num2;
+	printf("나눗셈 결과: %f\n", divResult);
+
+	return 0;
+}
