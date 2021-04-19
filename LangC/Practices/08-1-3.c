@@ -13,7 +13,7 @@ int main(void)
 	printf("수학 점수를 입력하세요: ");
 	scanf("%d", &math);
 
-	ave = ((double)kor+eng+math)/3;
+	ave = ((double)kor+eng+math)/3;	//ave = (kor+eng+math)/3.0; 라고 해도 된다! 이게 더 간단한 방법인듯하오
 
 	if(ave>=90)
 		grade = 'A';
