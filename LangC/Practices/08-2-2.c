@@ -42,3 +42,26 @@ int main(void)
 
 	return 0;
 }
+
+
+//답지
+
+#include <stdio.h>
+
+int main(void)
+{
+	int a, z;
+	int result;
+	for(a=0; a<10; a++)
+	{
+		for(z=0; z<10; z++)
+		{
+			if(a==z)	//굳이? if(a+z<9) 라고 하면 더 빠른 연산이 가능할듯.
+				continue;
+			result=(a*10+z)+(z*10+a);
+			if(result==99)
+				printf("%d%d + %d%d = %d\n", a,z,z,a,result);
+		}
+	}
+	return 0;
+}
