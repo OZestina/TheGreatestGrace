@@ -1,4 +1,21 @@
+//답지를 보고 BigNum과 SmallNu만 다시!
+//아래처럼 return에 조건 연산자로 진행 시 num1 vs num2를 한 번만 비교해도 된다! (꺌뀸)
 
+int BigNum(int num1, int num2, int num3)
+{
+	if (num1>=num2)
+		return (num1>=num3)? num1: num3;
+	else
+		return (num2>=num3)? num2: num3;
+}
+int SmallNum(int num1, int num2, int num3)
+{
+	if (num1<=num2)
+		return (num1<=num3)? num1: num3;
+	else
+		return (num2<=num3)? num2: num3;
+
+//1st try
 #include <stdio.h>
 int ReadNum(void);
 int BigNum(int, int, int);
