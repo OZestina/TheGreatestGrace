@@ -29,3 +29,37 @@ int main(void)
 
 	return 0;
 }
+
+
+//답지 기반
+//for loop를 이용해 정수 입력받기 + 좀 더 간결하게!
+#include <stdio.h>
+
+int main(void)
+{
+	int arr[5];
+	int i, max, min, sum;
+
+	printf("다섯 개의 정수 입력: ");
+	for(i=0; i<5; i++)
+		scanf("%d", &arr[i]);
+	
+	max=min=sum=arr[0];
+
+	for(i=1; i<5; i++)
+	{
+		if (max < arr[i])
+			max = arr[i];
+
+		if (min > arr[i])
+			min = arr[i];
+		
+		sum += arr[i];
+	}
+
+	printf("입럭한 정수 중 최댓값은 %d입니다.\n", max);
+	printf("입럭한 정수 중 최솟값은 %d입니다.\n", min);
+	printf("입럭한 정수의 합은 %d입니다.\n", sum);
+
+	return 0;
+}
