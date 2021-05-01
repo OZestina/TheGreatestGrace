@@ -18,7 +18,28 @@ const   //이름을 지니는 심볼릭(symbolic) 상수를 const 상수라 함
                         const double PI_VALUE = 3.1415;
                         return 0;
                 }
-                
+        // 1-1) 포인터 변수를 대상으로 'const' 선언 ver 1: 포인터 변수 참조하는 대상의 변경과 관련
+        // 포인터 변수를 이용해서 포인터 변수가 가리키는 변수에 저장된 값을 변경하는 것을 허용하지 않음, 값을 변경하는 방법에 제한
+                int main(void)
+                {
+                        it num=20;
+                        const int*ptr=&num;
+                        *ptr = 30;      //컴파일 에러 발생!
+                        num = 30;       //컴파일 성공!
+                }
+        // 1-2) 포인터 변수를 대상으로 'const' 선언 ver 2: 포인터 변수의 상수화
+        // 포인터 변수에 한번 주소 값이 저장되면 그 값의 변경이 불가능함
+                int main(void)
+                {
+                        int num1 = 20;
+                        int num2 = 30;
+                        int * const ptr = &num1;
+                        ptr = &num2;    //컴파일 에러 발생!
+                        *ptr = 40;      //컴파일 성공! (*ptr = num1 = 40 이 됨)
+                }
+        // 1-3) 1-1, 1-2의 내용을 한꺼번에도 가능
+                const int * const ptr = &num;
+
         // 2) 매크로 이용
         
 continue  //loop를 지나쳐 계속 실행하라~는 의미
