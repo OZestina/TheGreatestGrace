@@ -1,0 +1,13 @@
+#include <stdio.h>
+- ___ printf (주소값)
+- ___ scanf 
+
+#include <stdlib.h>
+- int rand (void) //의사 난수(pseudo-random number)
+  RAND_MAX: 생성될 수 있는 난수의 최댓값
+- void srand (unsigned int seed): 발생할 난수의 seed 값 변경(seed값에 따라 생성되는 난수가 달라지며, 동일한 seed값이면 같은 난수 생성)
+                                  srand 사용 후 rand()로 난수 발생 (srand만 쓰면 난수 발생 ㄴㄴ해!)
+
+#include <time.h>
+- time: 현재시간 호출
+        time(NULL) 시 단순히 시간 정보가 반환됨 - 난수 생성에 사용
