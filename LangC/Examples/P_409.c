@@ -1,4 +1,6 @@
 //SeedRamdonNum.c
+//씨드 값이 동일하면 같은 난수 생성
+
 
 #include <stdio.h>
 #include <stdlib.h>
