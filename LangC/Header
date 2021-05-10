@@ -2,6 +2,20 @@
 - ___ printf (주소값)
 - ___ scanf 
 
+>문자
+- int putchar (int c);
+- int fputc (int c, FILE * stream);
+- int getchar (void);
+- int fgetc (FILE * stream);
+>문자열
+- int puts (const char * s);  //자동개행 진행
+- int fputs (const char * s, FILE * stream);  //자동개행 진행 안됨
+- char * gets(char * s);  //입력 시의 \n은 저장에서 제외됨
+- char * fgets(char * s, int n, FILE * stream); //입력 시의 \n도 저장됨. 두번째 인자 int는 저장되는 문자열의 길이를 제한하는 부분
+>버퍼
+- int fflush (FILE * streasm);  //출력버퍼 비움(출력버퍼에 저장된 데이터가 버퍼를 떠나서 목적지로 이동)
+
+
 #include <stdlib.h>
 - int rand (void) //의사 난수(pseudo-random number)
   RAND_MAX: 생성될 수 있는 난수의 최댓값
