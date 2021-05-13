@@ -27,6 +27,11 @@
 - int atol (const char * str);  //문자열 내용 -> long형으로 변환
 - int atof (const char * str);  //문자열 내용 -> double형으로 변환
 
+>정수형 연산
+- int abs (int x);  //x의 절댓값 반환
+- long labs (long x); //x의 절댓값 반환
+
+
 #include <time.h>
 - time: 현재시간 호출
         time(NULL) 시 단순히 시간 정보가 반환됨 - 난수 생성에 사용
@@ -46,3 +51,5 @@
 - int strcmp (const char * s1, const char * s2);
 - int strncmp (const char * s1, const char * s2, size_t n);
 
+
+#include <math.h> //수학 관련 함수들(실수형 연산)
