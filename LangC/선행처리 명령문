@@ -1,0 +1,20 @@
+#define (NAME) (substitution)
+  ex) #define PI        3.1415
+  ex) #define SQUARE(X) X*X
+
+  #연산자  //문자열 내 매개변수 치환 가능
+  ex) #define STR_JOB(A,B)  #A "의 직업은 " #B "입니다."
+
+  ##연산자 //단순결합
+  ex) #define STNUM(Y,S,P)	Y ## S ## P
+
+#if...#endif  //조건부 코드 삽입을 위한 지시자
+
+#ifdef...#endif //매크로가 정의되었는지 여부를 기준으로 동작
+#ifndef...#endif //매크로가 정의되지 않았다면 동작
+
+#else   //#if, #ifdef, #ifndef에 추가적으로 사용
+        //#else를 사용해도 #endif는 필수!
+
+#elif   //#if에 추가적으로 사용
+
