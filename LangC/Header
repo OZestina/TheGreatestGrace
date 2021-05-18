@@ -1,6 +1,9 @@
 #include <stdio.h>
+>데이터 입출력
 - ___ printf (주소값)
-- ___ scanf 
+- ___ scanf //입력에 사용되는 \n을 읽어 들이지 않고 입력버퍼에 남겨둔다. 
+- fprintf (FILE * stream, ~);
+- fscanf (FILE * stream, ~);
 
 >문자
 - int putchar (int c);
@@ -9,14 +12,35 @@
 - int fgetc (FILE * stream);
 >문자열  //scanf와는 달리 공백을 포함하는 문자열도 입력 가능
 - int puts (const char * s);  //자동개행 진행
-- int fputs (const char * s, FILE * stream);  //자동개행 진행 안됨
+- int fputs (const char* s, FILE * stream);  //자동개행 진행 안됨
 - char * gets(char * s);  //입력 시의 \n은 저장에서 제외됨
 - char * fgets(char * s, int n, FILE * stream); //입력 시의 \n도 저장됨. 두번째 인자 int는 저장되는 문자열의 길이를 제한하는 부분
 >버퍼
-- int fflush (FILE * streasm);  //출력버퍼 비움(출력버퍼에 저장된 데이터가 버퍼를 떠나서 목적지로 이동)
+- int fflush (FILE * stream);  //출력버퍼 비움(출력버퍼에 저장된 데이터가 버퍼를 떠나서 목적지로 이동)
+>파일과의 스트림 형성
+- FILE * fopen (const char * filename, const char * mode);  //성공 시 해당 파일의 FILE 구조체 변수의 주소 값, 실패시 NULL 포인터 반환
+- int fclose(FILE * stream);  //스트림의 종료/해제(데이터의 저장) //성공 시 0, 실패 시 EOF 반환
+>파일복사
+- int feof(FILE * stream);  //파일의 끝을 확인해야 할 경우에 사용 (파일의 끝에 도달한 경우 0이 아닌 값 반환)
+>바이너리데이터 입출력
+- (입력) size_t fread(void*buffer, size_t size, size_t count, FILE * stream);  //성공 시 size_t count 값, 실패/파일끝 도달 시 count보다 작은 값 반환
+- (출력) size_t twrite(const void * buffer, size_t size, size_t count, FILE * stream);
+>파일위치지시자
+- (이동) int fseek(FILE * stream, long offset, int wherefrom);
+- (현위치확인) long ftell(FILE * stream);
+
+
 
 
 #include <stdlib.h>
+>Heap영역 메모리 공간 할당/해제
+- void * malloc (size_t size);  //성공 시 할당된 메모리의 주소값, 실패시 NULL 반환
+- void free (void * ptr); //인자로 malloc이 선언된 포인터가 옴
+- void * calloc (size_t elt_count, size_t elt_size);  //count*size 크기의 공간이 할당됨(인자 전달 방식에서 malloc과 차이)
+                                                      //할당된 메모리 공간의 모든 비트를 0으로 초기화
+- void *realloc (void * ptr, size_t size);  //힙에 할당된 메모리 공간 확장. 2nd 인자로 메모리 전체 크기 전달
+                                                      
+
 >난수 생성 관련
 - int rand (void) //의사 난수(pseudo-random number)
   RAND_MAX: 생성될 수 있는 난수의 최댓값
@@ -30,6 +54,8 @@
 >정수형 연산
 - int abs (int x);  //x의 절댓값 반환
 - long labs (long x); //x의 절댓값 반환
+
+
 
 
 #include <time.h>
