@@ -50,7 +50,9 @@ double  //실수 데이터 표현 시 사용하는 자료형 (8바이트, 소수
 else  //if~else의 그 else
 enum    //열거형(Enumerated type) 정의와 변수의 선언 시 사용
         //switch문과 함께 사용되며, 상수를 정수로 정의해서 의미를 부여할 수 있는 데 장점이 있다
-extern  //변수가 외부에 선언돼있음을 알려줌. 파일을 분할해서 컴파일러 시 필요. ex) extern int num; (int형 변수 num이 외부에 선언돼있다)
+extern  //변수가 외부에 선언돼있음을 알려줌. 파일을 분할해서 컴파일러 시 필요.
+        // ex1) extern int num; //int형 변수 num이 외부에 선언돼있다) 
+        // ex2) extern void Increment(void);    //void Increment(void) 함수가 외부에 정의돼있다. - 이 경우 extern 생략가능
 float //실수 데이터 표현 시 사용하는 자료형 (4바이트, 소수점 6자리)
 for //for loop문
 goto  //레이블 (대문자:)로 표시된 위치로 이동시키는 
