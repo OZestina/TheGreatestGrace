@@ -11,8 +11,17 @@
 #if...#endif  //조건부 코드 삽입을 위한 지시자
 
 #ifdef...#endif //매크로가 정의되었는지 여부를 기준으로 동작
-#ifndef...#endif //매크로가 정의되지 않았다면 동작
 
+#ifndef...#endif  //매크로가 정의되지 않았다면 동작
+                  //헤더파일의 중복 삽입 해결 방법으로 이 명령문을 활용할 수 있다
+                  (ex) 
+                  #ifndef __STDIV2__  //조건부 컴파일 시작
+                  
+                  #define __STDIV2__
+                  typdef struct div {...} Div;
+                  
+                  #endif              //조건부 컴파일 종료
+                  
 #else   //#if, #ifdef, #ifndef에 추가적으로 사용
         //#else를 사용해도 #endif는 필수!
 
