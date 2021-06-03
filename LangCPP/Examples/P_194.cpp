@@ -61,5 +61,8 @@ int main(void)
 	parr[0]->ShowPersonInfo();
 	parr[1]->ShowPersonInfo();
 	parr[2]->ShowPersonInfo();
+	delete parr[0];
+	delete parr[1];
+	delete parr[2];
 	return 0;
 }
