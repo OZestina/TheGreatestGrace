@@ -4,7 +4,12 @@
 using namespace std;
 const int NAME_LEN=20;
 
+//선택메뉴
 enum {MAKE=1, DEPOSIT, WITHDRAW, INQUIRE, EXIT};
+//계좌의 종류
+enum {NORMAL=1, CREDIT};
+//신용등급
+enum {LEVEL_A=7, LEVEL_B=4, LEVEL_C=2};
 
 class Account
 {
@@ -58,24 +63,12 @@ private:
 public:
 	NormalAccount(int ID, char *_name, int money, int inter): Account(ID, _name, money), interest(inter)
 	{ }
-	int GetInterest() const
-	{
-		return interest;
-	}
-	virtual int DepositMoney (int money)
-	{
-		return money + (int)(money*(interest)/100);
-	}
 	virtual void Deposit(int money)
 	{
-		Account::Deposit(DepositMoney(money));
+		Account::Deposit(money);
+		Account::Deposit(money*(interest/100.0));
 	}
 };
-
-namespace ACC_LEVEL
-{
-	enum { A = 1, B, C };
-}
 
 class HighCreditAccount : public NormalAccount
 {
@@ -84,21 +77,11 @@ private:
 public:
 	HighCreditAccount(int ID, char *_name, int money, int inter, int lev) : NormalAccount(ID, _name, money, inter), level(lev)
 	{ }
-	virtual int DepositMoney (int money)
-	{
-		int rate;
-		if(level==1)
-			rate = 7;
-		else if(level==2)
-			rate = 4;
-		else if(level==3)
-			rate = 2;
-
-		return money + (int)(money*(rate + NormalAccount::GetInterest())/100);
-	}
+	
 	virtual void Deposit(int money)
 	{
-		Account::Deposit(DepositMoney(money));
+		NormalAccount::Deposit(money);	//원금과 이자추가
+		Account::Deposit(money*(level/100.0));	//특별이자추가
 	}
 };
 
@@ -134,53 +117,17 @@ public:
 		return n;
 	}
 
-	int MakeAccountMenu(void)
+	void MakeAccount(void)
 	{
 		int n;
 		cout<<"[계좌종류선택]"<<endl;
 		cout<<"1.보통예금계좌 2.신용신뢰계좌"<<endl;
 		cin>>n;
-		return n;
-	}
-
-	void MakeAccount_Normal(void)
-	{
-		int ID;
-		char name[NAME_LEN];
-		int balance;
-		int inter;
-		//NormalAccount(int ID, char *_name, int money, int inter)
-
-		cout<<"[계좌개설]\n";
-		cout<<"계좌ID: "; cin>>ID;
-		cout<<"이름: ";	cin>>name;
-		cout<<"입금액: "; cin>>balance;
-		cout<<"이자율: "; cin>>inter;
-		cout<<endl;
-
-		accArr[accNum] = new NormalAccount(ID, name, balance, inter);
-		accNum++;
-	}
-
-	void MakeAccount_Credit(void)
-	{
-		int ID;
-		char name[NAME_LEN];
-		int balance;
-		int inter;
-		int level;
-		//HighCreditAccount(int ID, char *_name, int money, int inter, int lev)
-
-		cout<<"[계좌개설]\n";
-		cout<<"계좌ID: "; cin>>ID;
-		cout<<"이름: ";	cin>>name;
-		cout<<"입금액: "; cin>>balance;
-		cout<<"이자율: "; cin>>inter;
-		cout<<"신용등급(1toA, 2toB, 3toC): "; cin>>level;
-		cout<<endl;
-
-		accArr[accNum] = new HighCreditAccount(ID, name, balance, inter, level);
-		accNum++;
+		
+		if(n==NORMAL)
+			MakeAccount_Normal();
+		else if(n==CREDIT)
+			MakeAccount_Credit();
 	}
 
 	void DepositMoney(void)
@@ -238,6 +185,57 @@ public:
 			cout<<endl;
 		}
 	}
+
+protected:
+	void MakeAccount_Normal(void)
+	{
+		int ID;
+		char name[NAME_LEN];
+		int balance;
+		int inter;
+		//NormalAccount(int ID, char *_name, int money, int inter)
+
+		cout<<"[계좌개설]\n";
+		cout<<"계좌ID: "; cin>>ID;
+		cout<<"이름: ";	cin>>name;
+		cout<<"입금액: "; cin>>balance;
+		cout<<"이자율: "; cin>>inter;
+		cout<<endl;
+
+		accArr[accNum] = new NormalAccount(ID, name, balance, inter);
+		accNum++;
+	}
+
+	void MakeAccount_Credit(void)
+	{
+		int ID;
+		char name[NAME_LEN];
+		int balance;
+		int inter;
+		int level;
+		//HighCreditAccount(int ID, char *_name, int money, int inter, int lev)
+
+		cout<<"[계좌개설]\n";
+		cout<<"계좌ID: "; cin>>ID;
+		cout<<"이름: ";	cin>>name;
+		cout<<"입금액: "; cin>>balance;
+		cout<<"이자율: "; cin>>inter;
+		cout<<"신용등급(1toA, 2toB, 3toC): "; cin>>level;
+		cout<<endl;
+
+		switch(level)
+		{
+		case 1:
+			accArr[accNum] = new HighCreditAccount(ID, name, balance, inter, LEVEL_A);
+			break;
+		case 2:
+			accArr[accNum] = new HighCreditAccount(ID, name, balance, inter, LEVEL_B);
+			break;
+		case 3:
+			accArr[accNum] = new HighCreditAccount(ID, name, balance, inter, LEVEL_C);
+			break;
+		}
+	}
 };
 
 int main(void)
@@ -254,14 +252,7 @@ int main(void)
 		{
 		case MAKE:
 		{
-			int m = 0;
-			m = manager.MakeAccountMenu();
-			if (m==1)
-				manager.MakeAccount_Normal();
-			else if (m==2)
-				manager.MakeAccount_Credit();
-			else
-				cout<<"Illegal selection..."<<endl;
+			manager.MakeAccount();
 			break;
 		}	
 		case DEPOSIT:
