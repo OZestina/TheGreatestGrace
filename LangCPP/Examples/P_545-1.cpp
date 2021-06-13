@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "PointTemplate.h"
+#include "PointTemplate.cpp"
 using namespace std;
 
 int main(void)
