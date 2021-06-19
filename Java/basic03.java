@@ -15,3 +15,14 @@ public class StringApp {
     
   }
 }
+
+
+public class StringOperation {
+  
+  public static void main(String[] args) {
+    
+    System.out.println("Hello World".length()); // 11 (물론 띄어쓰기도 포함!)
+    System.out.println("Hello, user_name ... bye.".replace("user_name", "Zestina"));  //Hello, Zestina ... bye.
+    
+  }
+}
