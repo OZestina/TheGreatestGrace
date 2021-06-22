@@ -1,0 +1,11 @@
+cntl + n
+> 새로 만들기 (package, class 
+
+ctrl + s
+> 저장
+
+ctrl + F11
+> project Run
+
+syso/sysout + ctrl + spacebar
+> System.out.println(); 자동 완성 (eclipse 필요)
