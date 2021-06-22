@@ -2,3 +2,18 @@
 oracle.co.kr
 Java SE 8 version download
 개발자로 가입 후 다운
+
+//추가 프로그램(자동완성기능)
+eclipse
+
+//java>window>preferences>general>workspace
+Text file encoding을 UFT-8로 변경
+//preferences>java>installed JREs
+설치된 jre는 delete하고 java 설치 시 같이 설치된 jre를 add
+
+//java 실행 후 workspace 내것으로 바꾸고 시작!
+
+객체 지향 언어
+- 부품조립식 코드: 조각조각 부품(class)을 이어붙일 수 있는 언어
+- 문제 발생 시 다른 부품을 쓰면 돼서 대응이 빠름
+- jdk4500개 중 없는 건 MVN(maven repository, https://mvnrepository.com/)에서 찾아서 쓰자
