@@ -55,6 +55,7 @@ void NumMake(int nums[], int list[], int n)
 		list[x - 1] = 1;
 		nums[i] = x;
 	}
+	
 }
 
 void Game(int arr[], int nums[], int list[], int n)
@@ -80,6 +81,22 @@ void Game(int arr[], int nums[], int list[], int n)
 			system("cls");                  //화면 정리용
 			
 			printf("####################################\n");
+			printf("#                                  #\n");
+
+			//이전 단계 입력 수 보여주긔
+			printf("#  Number: ");
+			for (i = 0; i < n; i++)
+			{
+				printf("%d ", arr[i]);
+			}
+
+			for(i=0; i<9-n; i++)
+			{
+				printf("  ");
+			}
+			printf("      #\n");
+			printf("#                                  #\n");
+			printf("# ================================ #\n");
 			printf("#                                  #\n");
 
 			//strike
@@ -158,8 +175,78 @@ void Game(int arr[], int nums[], int list[], int n)
 				outt++;
 			}
 		}
+	}//end of while
+
+	//게임 승리 시
+	system("cls");  
+	printf("####################################\n");
+	printf("#                                  #\n");
+
+	//정답 배열 보여주기
+	printf("#  Number: ");
+	for (i = 0; i < n; i++)
+	{
+		printf("%d ", arr[i]);
 	}
 
+	for(i=0; i<9-n; i++)
+	{
+		printf("  ");
+	}
+	printf("      #\n");
+	printf("#                                  #\n");
+	printf("# ================================ #\n");
+	printf("#                                  #\n");
+
+	//strike
+	printf("#  S : ");
+	for(i=0; i<strike; i++)
+	{
+		printf("●");
+	}
+	for(i=0; i<(n-strike); i++)
+	{
+		printf("○");
+	}
+	for(i=0; i<9-n; i++)
+	{
+		printf("  ");
+	}
+	printf("          #\n");
+			
+	//ball
+	printf("#  B : ");
+	for(i=0; i<ball; i++)
+	{
+		printf("●");
+	}
+	for(i=0; i<(n-ball); i++)
+	{
+		printf("○");
+	}
+	for(i=0; i<9-n; i++)
+	{
+		printf("  ");
+	}
+	printf("          #\n");
+			
+	//out
+	printf("#  O : ");
+	for(i=0; i<outt; i++)
+	{
+		printf("●");
+	}
+	for(i=0; i<(n-outt); i++)
+	{
+		printf("○");
+	}
+	for(i=0; i<9-n; i++)
+	{
+		printf("  ");
+	}
+	printf("          #\n");
+	printf("#                                  #\n");
+	printf("####################################\n");
 	printf("%d 스트라이크! 축하합니다. \n%d번 만에 성공했어요.\n\n", n, num);
 }
 
