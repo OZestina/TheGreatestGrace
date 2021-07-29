@@ -1,0 +1,66 @@
+# 시작 전: 크롤링에 사용할 라이브러리를 설치
+# 1) pip install requests
+# 2) pip install beautifulsoup4
+
+#크롤링에 사용할 라이브러리 import
+
+import requests               #(크롤링할) 사이트에 접속해서 html 문서를 읽어온다.
+from bs4 import BeautifulSoup # requests 모듈을 사용해 읽어온 html 문서를 파싱한다
+
+targetSite = 'https://music.bugs.co.kr/chart'   #크롤링 진행할 사이트 주소
+
+request = requests.get(targetSite)  #사이트에 접속해서 html 문서를 읽어온다
+# print(request)                      #<Response [200]> 출력시 타겟 사이트 정상 접속된 것
+                                      # if request.status_code == 200:
+# print(type(request))                #<class 'requests.models.Response'>
+
+html = request.text             #읽어온 데이터에서 html 태그만 읽어낸다
+# print(html)                    #html 태그 출력 확인
+# print(type(html))              #<class 'str'>
+
+soup = BeautifulSoup(html, 'html.parser') #BeautifulSoup 모듈의 BeautifulSoup() 함수 사용
+                                          #읽어온 html 문서를 파싱할 준비를 한다
+# print(soup)
+# print(type(soup))              #<class 'bs4.BeautifulSoup'>
+
+# ====================================================================
+# BeautifulSoup() 함수를 사용해 파싱할 준비가 된 객체에서 파싱할 데이터만 읽어온다.
+# findAll('태그이름', {'속성이름' : '속성값'})
+
+# 1) 노래 제목 크롤링====================================================
+titles = soup.findAll('p', {'class' : 'title'})
+# print(titles)                   # 리스트
+# print(type(titles))             # <class 'bs4.element.ResultSet'>
+
+for title in titles:
+#     print(type(title))            # <class 'bs4.element.Tag'>
+#     print(title.text)
+#     print(type(title.text))         # <class 'str'>
+    print(title.text.strip())
+    print('*' * 100)
+
+
+# 가수 크롤링
+artists = soup.findAll('p', {'class' : 'artist'})
+# print(artist)
+for artist in artists:
+    print(artist.text.strip().split('\n')[0])
+    print('*' * 100)
+
+# file = open('bugsTop100.txt', 'w') 처럼 파일을 열어서 저장할 때 'cp949' codec can't encode character와
+# 같은 에러가 발생되면 아래와 같이 파일을 열어서 UTF-8(유니코드)로 인코딩 시켜서 저장시켜야 한다.
+file = open('bugsTop100.txt', 'w', -1, 'UTF-8')
+
+for i in range(len(titles)):
+    data = '{0:3d}위 {1} - {2}'.format(i + 1, titles[i].text.strip(), artists[i].text.strip().split('\n')[0])
+    # print(data)
+    file.write(data + '\n')
+file.close()
+print('bugsTop100.txt 파일에 쓰기 완료')
+
+file = open('bugsTop100.txt', 'r', -1, 'UTF-8')
+lines = file.readlines()
+print('벅스 뮤직 TOP 100')
+for line in lines:
+    print(line, end = '')
+file.close()
