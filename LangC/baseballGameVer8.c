@@ -1,7 +1,6 @@
 //updated 21.08.18
 
 /* Assignment
-
 1) gotoXY 함수로 GameScreen 클래스를 읽기 쉽게 만들어보자
 
 2) GameScreen 함수 간단히 만들기!
@@ -11,22 +10,6 @@ GameScreen {
   printStatus();
 }
 */
-
-/* Assignment
-1) gotoXY 함수로 GameScreen 클래스를 읽기 쉽게 만들어보자
-GameScreen {
-  printFrame();
-  printPrevInput();
-  printStatus();
-}
-void gotoxy(int x, int y);  //<Windows.h> 헤더 추가 필요
-  : 콘솔 내 문자 좌표 커서를 x,y로 이동시키는함수
-  
-	> 프레임을 그린다
-  > (커서이동) 플레이어가 입력한 배열 및 SBO 출력
-  > (커서이동) 플레이 결과문 출력하는 위치로 커서 이동
-*/
-
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -106,7 +89,7 @@ void printPrevInput(int arr[], int n)
 {
 	//이전 단계 입력 수 보여주긔
 	int i;
-	gotoxy(3,3);
+	gotoxy(3,2);
 	printf("Number: ");
 	for (i = 0; i < n; i++) { printf("%d ", arr[i]); }
 }
@@ -115,27 +98,27 @@ void printStatus(int strike, int ball, int outt, int n)
 {
 	int i;
 	//strike
-	gotoxy(3,7);
+	gotoxy(3,6);
 	printf("S : ");
 	for (i = 0; i < strike; i++) { printf("●"); }
 	for (i = 0; i < (n - strike); i++) { printf("○"); }
 	for (i = 0; i < 9 - n; i++) { printf("  "); }
 	
 	//ball
-	gotoxy(3,8);
+	gotoxy(3,7);
 	printf("B : ");
 	for (i = 0; i < ball; i++) { printf("●"); }
 	for (i = 0; i < (n - ball); i++) { printf("○"); }
 	for (i = 0; i < 9 - n; i++) { printf("  "); }
 	
 	//out
-	gotoxy(3,9);
+	gotoxy(3,8);
 	printf("O : ");
 	for (i = 0; i < outt; i++) { printf("●"); }
 	for (i = 0; i < (n - outt); i++) { printf("○"); }
 	for (i = 0; i < 9 - n; i++) { printf("  "); }
 
-	gotoxy(0,12);
+	gotoxy(0,11);
 }
 
 
