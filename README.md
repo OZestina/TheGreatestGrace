@@ -4,12 +4,12 @@
 비전공자의 개발자 취업기
 
 * 프로그래밍 언어/도구 목표
-[x] C
-[x] C++
-[x] Python
-[x] Java
-[] C#
-[] Unity
+*[x] C
+*[x] C++
+*[x] Python
+*[x] Java
+*[] C#
+*[] Unity
 
 
 * 전업 전 프로그래밍 경험  
