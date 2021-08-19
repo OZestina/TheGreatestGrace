@@ -91,10 +91,12 @@ while(True):
 # 세미나에 참석한 사람들 명단이 세트 A와 B에 있다. 2개의 파티 모두 참석한 사람을 출력하시오.
 # 세미나 A: 홍길동, 김길동, 박길동, 정길동
 # 세미나 B: 홍길동, 박길동, 황길동
-listA = ["홍길동", "김길동", "박길동", "정길동"]
-listB = ["홍길동", "박길동", "황길동"]
-listBoth = list(set(listA) & set(listB))
+listA = set(["홍길동", "김길동", "박길동", "정길동"])
+listB = set(["홍길동", "박길동", "황길동"])
+listBoth = listA & listB
+listBoth2 = listA.intersection(listB)
 print(listBoth)
+print(listBoth2)
 
 # 3
 # 이름과 나이를 속성으로 가진 강아지 클래스를 정의하라.
