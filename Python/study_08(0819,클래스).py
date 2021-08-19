@@ -73,11 +73,15 @@ while(True):
         friends.append(new)
     elif choice == "3":
         delete = input("절교할 친구 이름을 입력하세요 >> ")
-        friends.remove(delete)
+        if delete in friends:
+            friends.remove(delete)
     elif choice == "4":
         oldName = input("이름을 바꾼 친구 이름을 입력하세요 >> ")
-        newName = input("친구의 새 이름을 입력하세요 >> ")
-        friends[friends.index(oldName)] = newName
+        if oldName in friends:
+            newName = input("친구의 새 이름을 입력하세요 >> ")
+            friends[friends.index(oldName)] = newName
+        else:
+            print("그런 친구는 없네요")
     elif choice == "9":
         break
     else:
