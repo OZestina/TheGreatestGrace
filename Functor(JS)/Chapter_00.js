@@ -27,11 +27,11 @@ const priceList = [1000,2000,3000,4000];
 const c = 'hello world';
 
 //type을 만들(지정할) 수도 있다
-type Bool = true | false; // 유니온 타입
-const f: Bool = true;
+type Bool = true | false; // 유니온 타입 - Union, 합집합
+const f: Bool = true;     // 상수 변수 f는 데이터 타입이 (위에서 선언한) Bool이고, 그 값은 true이다
 
 
-function getTotalPrice(price: number): number {
+function getTotalPrice(price: number): number { //getTotalPrice라는 함수를 선언. price라는 number타입의 파라미터와 number타입의 return 값을 가진다
   const discountRate = 0.9;
   const vatRate = 1.1;
   return price * discountRate * vatRate;
@@ -44,8 +44,10 @@ const result = getTotalPrice(2000);
 
 //<T>는 어떠한 type이 올 수 있다는 것 (어떤 type이던지 상관 없게 되는건 any!)
 //하기의 내용에서 T는 모두 동일한 데이터 타입이 와야 한다
-function pushArray<T>(arr: Array<T>, value: T): Array<T>{
-    //.puch()는 .append()처럼 list에 값을 하나 추가하는 것
+function pushArray<T>(arr: Array<T>, value: T): Array<T>{ //pushArray라는 함수를 선언하는데, 이 함수에서는 T라는 데이터 타입을 쓸거다
+                                                          //T 데이터 타입의 Array인 arr과 T 데이터 타입의 value를 파라미터로 받아서
+                                                          //T 데이터 타입의 Array를 
+    //.push()는 .append()처럼 list에 값을 하나 추가하는 함수
     arr.push(value);
     return arr;
 }
