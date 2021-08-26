@@ -84,3 +84,31 @@ c = list(a)             #리스트 깊은 복사
 print(id(a), id(b), id(c))  #23487872 23487872 23487912
 
 #map(함수, iterable data set): 입력받은 자료형의 각 요소를 f 수행한 값을 묶어서 돌려줌
+def two_times(x): return x*2
+print(list(map(two_times,[1,2,3])))
+
+print(list(map(lambda x:x*2, [1,2,3,4])))
+
+#max(iterable): 최댓값 리턴
+print(max([1,2,3]))
+
+#min(iterable): 최솟값 리턴
+print(min([1,2,3]))
+
+#oct(x): 10진수 정수 -> 8진수
+print(oct(9))   #0o는 8진수임을 나타내주는 것
+
+#ord(c): 문자의 ASCII코드 값 돌려주는 함수
+print(ord('1')) #49
+
+#pow(x,y): power, x의 y승 리턴
+print(pow(2,3)) #8
+
+#range([start,]stop[,step])
+
+#round(number[,ndigits]): 반올림
+print(round(4.51))  #5
+print(round(4.5))   #4
+
+#sorted(iterable) 입력값 정렬하여 리스트로 돌려줌
+print(sorted([1,-5,3,-4,2-3,0,-2,-1]))  #[-5, -4, -2, -1, -1, 0, 1, 3]
