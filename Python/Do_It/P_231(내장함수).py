@@ -112,3 +112,26 @@ print(round(4.5))   #4
 
 #sorted(iterable) 입력값 정렬하여 리스트로 돌려줌
 print(sorted([1,-5,3,-4,2-3,0,-2,-1]))  #[-5, -4, -2, -1, -1, 0, 1, 3]
+
+#str(object): 문자열 형태로 객체를 변환하여 돌려주는 함수
+print(str(3))   #'3'
+
+#sum(iterable): 입력받은 리스트나 튜플을 합해주는 함수
+print(sum([1,2,3])) #6
+
+#tuple(iterable): 튜플형태로 바꾸어 돌려준다
+print(tuple("abc"))     #('a', 'b', 'c')
+print(tuple([1,2,3]))   #(1, 2, 3)
+a = (1,2,3)
+b = tuple(a)
+print(id(a))    #35481320
+print(id(b))    #35481320
+
+#type(object): 입력값의 자료형을 알려준다
+print(type(a))  #<class 'tuple'>
+print(type(open("test","w")))   #<class '_io.TextIOWrapper'>
+
+#zip(iterable*): 동일한 개수로 이루어진 자료형을 묶어준다
+print(list(zip([1,2,3],[4,5,6])))   #[(1, 4), (2, 5), (3, 6)]
+print(list(zip("abc",[4,5,6])))     #[('a', 4), ('b', 5), ('c', 6)]
+print(list(zip("abc","def")))       #[('a', 'd'), ('b', 'e'), ('c', 'f')]
