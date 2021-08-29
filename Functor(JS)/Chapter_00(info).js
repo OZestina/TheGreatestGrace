@@ -1,5 +1,21 @@
 //2021.08.16
 
+//함수형 코딩을 위해 기억해야하는 것 두 가지!
+// 1. 순수 함수를 조합해서 풍부한 프로그램을 짠다
+    // (traditional)  (pain points)                                     (how to solve) 
+    // array (for문)   값이 여러 개(0개, 1개, 여러개)일 가능성(비결정적)   => map(a => b)
+    // if null         리턴되는 값이 null일 수도 있다                    => Option
+    // try catch       에러가 발생할 수 있다                             => Try
+    // async 비동기    언제 리턴될 지 & 어떤 순서로 실행될 지 모른다       => Promise
+    // 여러번 반복      매번 값이 달라짐 (side effect 부분때문에)
+    // Iterator
+    // Observable
+
+// 2. 복잡한 Context에 대한 '처리'를 분리해서 map Functor 같은 친구들로 만든다
+    // 함수와 effect를 분리!
+
+
+
 //const는 상수형
 const message: string = "hello world";
 //console.log() 콘솔에 출력
@@ -11,18 +27,6 @@ console.log(message);
 
 //상수형 리스트도 만들 수 있다
 const priceList = [1000,2000,3000,4000];
-
-//함수형 코딩을 위해 기억해야하는 것 두 가지!
-// 1. 순수 함수 조합한다
-    // (traditional) (pain points)
-    // for            여러 개다 => []   [1]   [1,2,3,4] => Array map
-    // if null        값이 null일 수도 있다 Option map
-    // try catch      Try
-    // async 비동기    Promise
-    // 여러번 반복     매번 값이 달라짐 (side effect 부분때문에)
-
-// 2. 복잡한 Context 를 추상화해서 처리한다.
-    // 함수와 effect를 분리!
 
 const c = 'hello world';
 
