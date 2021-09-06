@@ -6,10 +6,10 @@
     // array (for문)   값이 여러 개(0개, 1개, 여러개)일 가능성(비결정적)   => map(a => b)
     // if null         리턴되는 값이 null일 수도 있다                    => Option
     // try catch       에러가 발생할 수 있다                             => Try
-    // async 비동기    언제 리턴될 지 & 어떤 순서로 실행될 지 모른다       => Promise
+    // async 비동기    언제 리턴될 지 & 어떤 순서로 실행될 지 모른다       => Promise (try + then + catch)
     // 여러번 반복      매번 값이 달라짐 (side effect 부분때문에)
-    // Iterator
-    // Observable
+    // Iterator        반응이 언제올 지 모르지만, 한 번 오면 끝
+    // Observable       반응이 언제올 지 모르고, 사용자가 몇 번 반복할 지 모른다
 
 // 2. 복잡한 Context를 추상화해서 처리한다 ('처리'를 분리해서 map Functor 같은 친구들로 만든다)
     // 함수와 effect를 분리!
