@@ -8,6 +8,7 @@
 * [x] C++
 * [x] Python
 * [x] Java
+* [x] Java Script
 * [ ] C#
 * [ ] Unity
 
