@@ -52,3 +52,36 @@ print(list(map(lambda x: x*3, [1,2,3,4])))
 #Q7
 lists = [-8,2,7,5,-3,5,0,1]
 print(max(lists) + min(lists))  #-1
+
+#Q8
+print(round(17/3, 4))
+
+#Q9
+import sys
+sum = 0
+for number in sys.argv[1:]:
+    sum += int(number)
+
+#Q10
+import os
+#os.chdir("C:\doit")
+#os.system("dir")
+result = os.popen("dir")    #os.popen()하면 실행됨
+print(result.read())
+
+#Q11
+import glob
+glob.glob("C:\doit\*.py")
+
+#Q12
+import time
+time.strftime('%Y/%m/%d %H:%M:%S', time.localtime(time.time()))
+
+#Q13
+import random
+lists = []
+while len(lists) < 6:
+    number = random.randint(1, 45)
+    if number not in lists:
+        lists.append(number)
+print(lists)
