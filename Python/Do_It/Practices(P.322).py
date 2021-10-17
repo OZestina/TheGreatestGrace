@@ -38,3 +38,13 @@ print(fib2(2))          #[0, 1, 1, 2]
 print(fib2(3))          #[0, 1, 1, 2, 3]
 print(fib2(4))          #[0, 1, 1, 2, 3]
 
+#Q6
+def totalSum():
+    nInput = input("숫자 입력>> ")
+    numbers = nInput.split(",")
+    result = 0
+    for i in numbers:
+        result += int(i)
+    return result
+print(totalSum())
+
