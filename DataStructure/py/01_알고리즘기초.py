@@ -76,10 +76,8 @@ print(n*(n+1)//2)       #이게되네
 
 #1-12
 n = int(input('출력할 +, -의 개수: '))
-for _ in range(n//2):
-    print('+-', end="")
-if n%2 == 1:
-    print("+")
+print('+-' * (n//2), end="")
+if n%2 == 1: print("+")
     
     
 #1-14
