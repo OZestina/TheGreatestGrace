@@ -44,7 +44,7 @@ for i in range(n):
 # 1-23
 n = int(input('짧은 변의 길이를 입력하세요>> '))
 for i in range(n):
-    print(f'{"*" * (i+1):>5}')
+    print(f'{"*" * (i+1):>{n}}')
 
 # 1C-4
 n = 1
