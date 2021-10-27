@@ -9,4 +9,5 @@ public void myFunction(int number) {
 
   for (int i = 1; i <= n; i++) { result += i; }
   System.out.println(result * 3);
+  }
 }
