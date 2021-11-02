@@ -9,3 +9,16 @@ def solution(lottos, win_nums):
     answer[1] = 7-correct if correct > 1 else 6
     
     return answer
+
+
+
+#다른 사람 풀이 보고 배우기
+#등수를 배열로 하면 if문 안쓰고도 할 수 있다..!
+def solution(lottos, win_nums):
+    rank = [6,6,5,4,3,2,1]
+    zero = lottos.count(0)
+    correct = 6-len(set(win_nums)-set(lottos))
+    
+    #최대 맞은 수, 최소 맞은 수 [correct+zero, correct]
+    answer = [rank[correct+zero], rank[correct]]
+    return answer
