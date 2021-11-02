@@ -9,6 +9,7 @@ class Main {
 		
 		long result = 0L;
 		for (long i = 1; i < square+1; i++) {
+			//i*i가 int보다 크니까 i도 long으로 
 			result += i*i;
 		}
 		System.out.println(result);
