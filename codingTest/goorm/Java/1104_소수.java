@@ -21,3 +21,31 @@ class Main {
 		System.out.println(result);
 	}
 }
+
+
+// 1은 소수가 아니어서 False로 리턴
+// 2의 배수는 추가로 계산할 필요가 없어서 i = 3 부터 홀수만 for문 진행 (연산과정 1/2로 줄어듦)
+
+import java.io.*;
+class Main {
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String input = br.readLine();
+		
+		//input값 int로 변환
+		int number = Integer.valueOf(input);
+		
+		//결과 출력
+		System.out.println(isPrime(number));
+	}
+	public static String isPrime(int n) {
+		//소수 여부 확인
+		if (n == 1) { return "False"; }
+		else if (n == 2) { return "True"; }
+		else if (n % 2 == 0) { return "False"; }
+		for(int i = 3; i <= Math.sqrt(Double.valueOf(n)); i += 2) {
+			if (n % i == 0) { return "False"; }
+		}
+		return "True";
+	}
+}
