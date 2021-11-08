@@ -18,3 +18,20 @@ for i in test:
 		print(1)
 	else:
 		print(0)
+
+		
+# 딕셔너리 대신 세트도 된다..! unordered면 검색은 다 빠른듯!
+
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+valueArr = list(0 for i in range(int(input())))
+arr = set(map(lambda x: int(x), input().split(" ")))
+
+user_input2 = int(input())
+test = list(map(lambda x: int(x), input().split(" ")))
+
+for i in test:
+	if i in arr:
+		print(1)
+	else:
+		print(0)
