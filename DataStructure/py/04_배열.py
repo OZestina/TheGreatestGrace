@@ -74,3 +74,52 @@ r = input('enter r: ')
 print(card_conv(int(x),int(r)))
 
 
+#2-9
+counter = 0
+prime = [2,3,5,7]
+
+for n in range(9, 1001, 2):
+    for i in prime:
+        counter += 1
+        if n % i == 0:
+            break
+    else:
+        prime.append(n)
+
+print(prime)
+print(counter)      #15115
+
+#2-10
+counter = 0
+prime = [2,3,5,7]
+
+for n in range(9, 1001, 2):
+    i = 1           #홀수만 계산하니까 2는 제외
+    while prime[i]*prime[i] <= n:
+        counter += 2    #곱셈이랑 나눗셈
+        if n % prime[i] == 0:
+            break
+        i += 1
+    else:
+        prime.append(n)
+        counter += 1
+
+print(prime)
+print(counter)      #3772
+
+
+#얕은 복사(참조값만 복사)
+x = [[1,2],[3,4]]
+y = x.copy()
+x[0][1] = 9
+print(x)    #[[1, 9], [3, 4]]
+print(y)    #[[1, 9], [3, 4]]
+
+#깊은 복사는 deep
+#copy 임포트 필요
+import copy
+x = [[1,2],[3,4]]
+y = copy.deepcopy(x)
+x[0][1] = 7
+print(x)    #[[1, 7], [3, 4]]
+print(y)    #[[1, 2], [3, 4]]
