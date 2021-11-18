@@ -34,3 +34,38 @@ if len(idx) == 0:
 	print("CLEAR!")
 else:
 	print(result)
+
+	
+	
+#2nd try
+#배열을 포기하고, 스트링 삭제 후 처음부터 진행하는 방법으로 변경
+#첫 번째 방법이 연산횟수가 더 적은데, 런타임에러와 에러가 뜨는 이유는 뭘까...
+
+[N,M] = [int(x) for x in input().split(" ")]
+result = input()
+
+#반복되는 알파벳의 첫 시작 위치 저장
+idx1 = 0
+#반복되는 알파벳의 마지막 위치 +1 저장
+idx2 = 1
+
+while idx2 < len(result):
+	#idx에 마지막으로 저장된 알파벳과 현재 알파벳이 같을 경우 r_idx+1
+	while idx2 < len(result) and result[idx2] == result[idx1]:
+		idx2 += 1
+	#반복된 알파벳의 개수가 M 이상이면 해당 부분 삭제
+	if idx2 - idx1 >= M:
+		result = result.replace(result[idx1]*(idx2 - idx1),'',1)
+		idx1 = 0
+		idx2 = 1
+		# print(result)
+		# print("if: ", idx)
+	#반복된 알파벳의 개수가 M 미만이면 r_idx를 idx배열에 추가
+	else:
+		idx1 = idx2
+		idx2 += 1
+	
+if len(result) == 0:
+	print("CLEAR!")
+else:
+	print(result)
