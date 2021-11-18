@@ -1,7 +1,7 @@
 #https://level.goorm.io/exam/49076/1%EC%B0%A8%EC%9B%90-%EB%BF%8C%EC%9A%94%EB%BF%8C%EC%9A%94/quiz/1
 
-#1st try: 안됨
-#알파벳의 좌표를 기억하는 
+#1st try
+#알파벳의 좌표를 기억하는 배열을 별도로 만들어서 스트링 업데이트 시 처음부터 검수하지 않도록하자
 
 [N,M] = [int(x) for x in input().split(" ")]
 result = input()
@@ -34,8 +34,7 @@ else: print(result)
 	
 	
 #2nd try
-#배열을 사용하지 않고, 스트링 삭제 후 처음부터 진행하는 방법으로 변경
-#첫 번째 방법이 연산횟수가 더 적은데, 런타임에러와 에러가 뜨는 이유는 뭘까...
+#배열을 사용하지 않고, 스트링 삭제 후 처음부터 진행하는 방법
 
 [N,M] = [int(x) for x in input().split(" ")]
 result = input()
