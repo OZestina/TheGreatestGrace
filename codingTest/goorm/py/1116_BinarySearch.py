@@ -21,3 +21,18 @@ array = [int(x) for x in input().split(" ")]
 num = int(input())
 
 print(findNum(array, num))
+
+
+
+#2nd try
+#제공되는 이진탐색함수 사용
+
+import bisect
+
+user_input = input()
+array = [int(x) for x in input().split(" ")]
+num = int(input())
+
+pos = bisect.bisect(array,num)
+if array[pos-1] == num: print(pos)
+else: print('X')
