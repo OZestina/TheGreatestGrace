@@ -1,5 +1,7 @@
 #https://level.goorm.io/exam/51584/%EA%B5%AC%EB%A6%84-%EA%B2%8C%EC%9E%841-%EB%AF%B8%EC%99%84%EC%84%B1/quiz/1
 
+#1st try
+#5,8번 runtime error (제한시간 1초)
 [N,M] = [int(x) for x in input().split(" ")]
 lamp = []
 for i in range(N):
