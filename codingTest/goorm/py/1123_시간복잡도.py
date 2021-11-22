@@ -7,12 +7,33 @@ def howManyZeros(n):
 	if n < 5:
 		return 0
 	count5 = 0
-	count10 = 0
 	for i in range(5, n+1, 5):
 		while i%5 == 0:
 			count5 += 1
 			i = i//5
 	return count5
 
+factorial = int(input())
+print(howManyZeros(factorial))
+
+
+#2nd try
+#5의 배수를 세주는 별도의 함수로 해봄
+#시간 더 오래걸림 ㅎㅎ
+def howMany5(n):
+	squared = [1953125, 390625, 78125, 15625, 3125, 625, 125, 25, 5]
+	for i in range(len(squared)):
+		if n % squared[i] == 0:
+			return 9-i
+	return 0
+
+def howManyZeros(n):
+	if n < 5:
+		return 0
+	count10 = 0
+	for i in range(5, n+1, 5):
+		count10 += howMany5(i)
+	return count10
+	
 factorial = int(input())
 print(howManyZeros(factorial))
