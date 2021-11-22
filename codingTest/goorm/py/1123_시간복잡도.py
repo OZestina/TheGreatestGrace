@@ -60,7 +60,7 @@ def howManyZeros(n):
 	if n < 5:
 		return 0
 	count5 = 0
-	while n > 5:
+	while n >= 5:
 		count5 += n//5
 		n = n//5
 	return count5
