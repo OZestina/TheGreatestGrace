@@ -37,3 +37,33 @@ def howManyZeros(n):
 	
 factorial = int(input())
 print(howManyZeros(factorial))
+
+
+#3rd try
+#나눗셈을 활용하여 하는 방법 찾음! 훨씬 연산이 간단하다
+def howManyZeros(n):
+	squared = [9765625, 48828125, 244140625, 1953125, 390625, 78125, 15625, 3125, 625, 125, 25, 5]
+	if n < 5:
+		return 0
+	count5 = 0
+	for i in squared:
+		count5 += n//i
+	return count5
+
+factorial = int(input())
+print(howManyZeros(factorial))
+
+
+#4th try
+#ohohoh!
+def howManyZeros(n):
+	if n < 5:
+		return 0
+	count5 = 0
+	while n > 5:
+		count5 += n//5
+		n = n//5
+	return count5
+
+factorial = int(input())
+print(howManyZeros(factorial))
