@@ -51,7 +51,7 @@ class FixedStack:
                 return i
         return -1
 
-    def count(self, value: Any) -> bool:
+    def count(self, value: Any) -> int:
         c = 0
         for i in range(self.ptr):
             if self.stk[i] == value:
@@ -59,7 +59,7 @@ class FixedStack:
         return c
 
     def __contains__(self, value: Any) -> bool:
-        return self.count(value)
+        return self.count(value) > 0
 
     def dump(self) -> None:
         if self.is_empty():
