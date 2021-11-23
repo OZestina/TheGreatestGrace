@@ -1,7 +1,5 @@
 #2021.11.23
 
-# 2021.11.23
-
 from typing import Any
 from collections import deque
 
