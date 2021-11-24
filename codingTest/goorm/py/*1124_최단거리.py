@@ -1,0 +1,3 @@
+# https://level.goorm.io/exam/43082/%EC%B5%9C%EB%8B%A8-%EA%B1%B0%EB%A6%AC-%EA%B5%AC%ED%95%98%EA%B8%B0/quiz/1
+# level2 인줄 알고 시작했는데, 알고보니 레벨5...
+# 어떻게 시작 해야할 지 감도 안잡힌다 (2021.11.24)
