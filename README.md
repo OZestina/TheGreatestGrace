@@ -11,6 +11,7 @@
 * [x] Java Script
 * [ ] C#
 * [ ] Unity
+* [x] Swift
 
 
 * 전업 전 프로그래밍 경험  
