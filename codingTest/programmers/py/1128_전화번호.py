@@ -26,3 +26,13 @@ def solution(phone_book):
                 answer = False
                 break
     return answer
+
+#다른 사람의 풀이. 소요시간 거의 1/5로 단축 (가장 오래걸리는 케이스 기준)
+#와... 똑똑하다....
+def solution(phoneBook):
+    phoneBook = sorted(phoneBook)
+    for p1, p2 in zip(phoneBook, phoneBook[1:]):
+        print(p1, p2)
+        if p2.startswith(p1):
+            return False
+    return True
