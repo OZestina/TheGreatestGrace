@@ -2,6 +2,7 @@
 
 #1st try
 #효율성테스트 모두 fail. for문 한 번만 쓰게 줄여야한다
+#n=len(phone_book), m=번호의평균길이 라고 했을때 복잡도는 n*n*m
 def solution(phone_book):
     phone_book.sort()
     answer = True
@@ -13,3 +14,15 @@ def solution(phone_book):
     return answer
   
 #2nd try
+#phone_book을 set로 만들어서 search를 O(1)로 만들어주면 n*m의 복잡도로 줄일 수 있다
+#Set을 사용하지 않고 배열로 진행했을 때(24번줄 대신 25번줄 사용)는 효율성테스트 fail(2/4 성공)한다
+def solution(phone_book):
+    answer = True
+    phoneSet = set(phone_book)
+    for phoneNum in phone_book:
+        for i in range(len(phoneNum)-1):
+            if phoneNum[:i+1] in phoneSet:
+            # if phoneNum[:i+1] in phone_book:
+                answer = False
+                break
+    return answer
