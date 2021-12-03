@@ -1,5 +1,32 @@
 #https://programmers.co.kr/learn/courses/30/lessons/49189?language=python3
 
+#3rd try : passed!!!!
+#각 노드에 연결된 노드를 우선 정리하고, 그 후 1부터 연결된 노드를 검사하는 방법으로 코드 구성
+
+def solution(n, edges):
+    # 각 노드에 연결된 노드를 딕셔너리에 저장
+    relation = {i: [] for i in range(1, n + 1)}
+    for [a, b] in edges:
+        relation[a].append(b)
+        relation[b].append(a)
+    # 검사 끝난 노드 저장용 세트 선언
+    finish = set()
+    # 검사할 노드 저장용 세트 선언 및 초기화
+    toCheck = set([1])
+
+    while len(toCheck) > 0:
+        count = len(toCheck)
+        finish.update(list(toCheck))    # 이번 턴에서 검사하는 노드 finish에 저장
+        checking = toCheck              # 검사하는 노드 임시로 저장
+        toCheck = set()                 # 다음 턴에서 검사할 노드 저장용으로 초기화
+        for node in checking:
+            toCheck.update(relation[node])
+        toCheck = toCheck - finish
+
+    return count
+
+#=======================================================================
+
 #1st try :  failed (2/9 통과)
 def solution(n, edges):
     finish = set()
