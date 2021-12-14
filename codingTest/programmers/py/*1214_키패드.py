@@ -29,3 +29,6 @@ def solution(numbers, hand):
                 left = number
         
     return answer
+
+
+#각 수마다 좌표(x,y)를 지정해서 2580의 경우 [x값의 차이+y값의 차이]로 거리를 구하면 어떨까
