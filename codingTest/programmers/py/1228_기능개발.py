@@ -27,4 +27,22 @@ def solution(progresses, speeds):
     return answer
   
   
-#2nd try
+# 2nd try
+# 다른 사람의 풀이를 보다가 발견한 내용으로 수정^^
+# 1) day 초기값을 첫 day값으로 지정해서 if문 하나 없애기
+# 2) 마지막 프로세스를 별도 if문으로 안빼고 answer.append(process)로 진행
+import math
+
+def solution(progresses, speeds):
+    answer = []
+    process = 0
+    day = math.ceil((100 - progresses[0]) / speeds[0])
+    for process_num in range(len(progresses)):
+        if speeds[process_num] * day + progresses[process_num] >= 100:
+            process += 1
+        else:
+            answer.append(process)
+            process = 1
+            day = math.ceil((100 - progresses[process_num]) / speeds[process_num])
+    answer.append(process)
+    return answer
