@@ -15,13 +15,17 @@ for _ in range(M):	#M번 반복
     
 # 2nd try
 # 누적값 accumulation 리스트를 생성해 sum(1~end)-sum(1~start)의 값을 연산
-# 22~24 line 한 줄로 못줄이나
+# itertools의 accumulate 내장함수를 사용하면 누적값을 짧게 구할 수 있다 (line 26~28을 line 25로 대체)
+
+from itertools import accumulate
+
 [N, M] = [int(x) for x in input().split()]
 difference = [int(x) for x in input().split()] #N개
 
-accumulation = [difference[0]]
-for i in range(1, N):
-	accumulation.append(accumulation[i-1] + difference[i])
+accumulation = list(accumulate(difference))
+# accumulation = [difference[0]]
+# for i in range(1, N):
+# 	accumulation.append(accumulation[i-1] + difference[i])
 
 for _ in range(M):
 	[start, end] = [int(x) for x in input().split()]
@@ -31,6 +35,7 @@ for _ in range(M):
 		answer = accumulation[end-1]
 	if answer > 0: print('+',answer,sep='')
 	else: print(answer)
+		
     
     
 # 2-2 try
