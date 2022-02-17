@@ -20,25 +20,26 @@ for _ in range(user_input * 2):
 print(count)
 
 
-# 2nd try
-# 아 왜 
+# 2nd try (220217)
+# 6 Fail (런타임도 아니고 실패?)
 user_input = int(input())
-count = 0
-current_num = 0
-queue = []
-sort = False
+count = 0	#정렬 횟수 카운트
+current_num = 0	#이번에 remove할 수
+queue = []	#add된 숫자
+falseCount = 0	#정렬된 queue에 append된 횟수
+
 for _ in range(user_input * 2):
 	order = input()
 	if order == 'remove':
 		current_num += 1
-		if sort == True:
-			pass
-		elif queue[len(queue)-1] != current_num:
-			count += 1
-			sort = True
-		# queue.remove(current_num)
+		if falseCount != 0:	#정렬된 상태가 아니면
+			position = len(queue)-1
+			while queue[position] < current_num:
+				position -= 1
+			if queue[position] != current_num:
+				count += 1
+				falseCount = 0
 	else:
 		queue.append(int(order[4:]))
-		sort = False
-
+		falseCount += 1
 print(count)
