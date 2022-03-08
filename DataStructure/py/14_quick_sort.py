@@ -20,17 +20,12 @@ def partition(a: MutableSequence) -> None:
     print(f'피벗은 {x}입니다')
 
     print('피벗 이하인 그룹입니다')
-    print(*a[0:pl]) #value만 출력할 때는 앞에 *를 붙여준다
-    print(a[0:pl])
+    print(*a[0:pl])
 
-    #
+    if pl > pr+1:
+        print('피벗과 일치하는 그룹입니다')
+        print(*a[pr+1:pl])
 
-if __name__ == '__main__':
-    print('배열을 나눕니다')
-    num = int(input('원수 수 입력: '))
-    x = [None] * num
+    print('피벗 이상인 그룹입니다')
+    print(*a[pr+1 : n])
 
-    for i in range(num):
-        x[i] = int(input(f'x[{i}]: '))
-
-    partition(x)
