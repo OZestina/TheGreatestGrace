@@ -1,7 +1,8 @@
 # https://programmers.co.kr/learn/courses/30/lessons/92334?language=python3
 
-# 3rd try => ing
-# 가장 긴 것부터 검사해서 len(v) < k 인 경우 탈출하는 방법 시도중
+# 3rd try
+# 가장 긴 것부터 검사해서 len(v) < k 인 경우 탈출하는 방법
+# 소요시간 기준 절반으로 줄어든 것도, 두배로 늘어난 것도 있다
 def solution(id_list, report, k):
     reported = {ids:[] for ids in id_list}
     mail = {ids:0 for ids in id_list}
@@ -11,15 +12,13 @@ def solution(id_list, report, k):
         [reporter, bad] = comment.split()
         reported[bad].append(reporter)
     
-    print(list(reported.values())
-    # for v in [reported.values()].sort(reverse=True):
-    #     print(v)
-        # if len(v) < k: break
-        # for reporter in v:
-        #     mail[reporter] += 1
-          
-    # for ids in id_list:
-    #     answer.append(mail[ids])
+    for v in sorted(list(reported.values()), key = len, reverse=True):
+        if len(v) < k: break
+        for reporter in v:
+            mail[reporter] += 1
+            
+    for ids in id_list:
+        answer.append(mail[ids])
           
     return answer
 
