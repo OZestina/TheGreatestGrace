@@ -24,7 +24,7 @@ def partition(a: MutableSequence) -> None:
 
     if pl > pr+1:
         print('피벗과 일치하는 그룹입니다')
-        print(*a[pr+1:pl])
+        print(*a[pr+1:pl])ㅇㅇ
 
     print('피벗 이상인 그룹입니다')
     print(*a[pr+1 : n])
