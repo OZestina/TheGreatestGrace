@@ -29,3 +29,25 @@ def partition(a: MutableSequence) -> None:
     print('피벗 이상인 그룹입니다')
     print(*a[pr+1 : n])
 
+
+#6-11)
+from typing import MutableSequence
+
+def qsort(a: MutableSequence, left: int, right: int) -> None:
+    pl = left
+    pr = right
+    x = a[(left+right) // 2]
+
+    while pl <= pr:
+        while a[pl] < x: pl += 1
+        while a[pr] > x: pr -= 1
+        if pl <= pr:
+            a[pl], a[pr] = a[pr], a[pl]
+            pl += 1
+            pr -= 1
+
+    if left < pr: qsort(a, left, pr)
+    if right > pl: qsort(a, pl, right)
+
+def quick_sort(a: MutableSequence) -> None:
+    qsort(a, 0, len(a)-1)
