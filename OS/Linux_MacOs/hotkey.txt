@@ -7,3 +7,5 @@
 #스크립트 쉘에서 명령어 내용을 출력하고 싶은 경우
 변수명=$(명령어)
 echo "변수명"
+
+find . -type f /( -name "*~" -o -name "&*&" /) -print -delete
