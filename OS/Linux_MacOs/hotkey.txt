@@ -9,3 +9,5 @@
 echo "변수명"
 
 find . -type f /( -name "*~" -o -name "&*&" /) -print -delete
+
+Vimtutor 명령어로 vim 연습파일을 실행할 수 있다
