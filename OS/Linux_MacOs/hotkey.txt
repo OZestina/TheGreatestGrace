@@ -11,3 +11,8 @@ echo "변수명"
 find . -type f /( -name "*~" -o -name "&*&" /) -print -delete
 
 Vimtutor 명령어로 vim 연습파일을 실행할 수 있다
+
+220520 금
+//시험...재미있었다!!
+//strcpy문제를 너무 어렵게 생각해서 시간을 많이쓴게 아쉽지만, 결국 해결!
+//atoi도 고민해봐야지
