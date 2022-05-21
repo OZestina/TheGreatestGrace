@@ -10,3 +10,35 @@ find (조건) -exec (명령어) {} [exec 추가조건] \;
 {} 는 찾은 파일을 의미
 -exec 은 ;까지의 내용을 명령한다. ;은 특수한 내용이 있으니 (함수 실행의 기준) 세미콜론으로 읽히도록 앞에 \를 붙여준다
 man basename:                   // 파일명만 출력
+
+<awk 명령어>
+awk 'pattern { action }'
+    pattern 은 조건을 나타냄        ex) NR%2==1    생략될 경우 default값은 '모든 레코드'
+    action  은 실행 내용을 나타냄    ex) {print}    생략될 경우 default값은 'print(출력)'
+    
+awk -v start=$FT_LINE1 -v end=$FT_LINE2 'NR>=start && NR<=end'
+    변수 선언된 내용을 awk 안에서 사용하고 싶다면 -v 옵션으로 가져와서 사용하자 [ -v var=value ]
+
+awk 'NR%2==0'
+
+    
+<grep 명령어>
+grep -v '^#'
+    -v 는 반대를 뜻하는 옵션.
+    -v '^#' 는 #으로 시작하지 않는 것을 의미한다
+
+<sed 명령어>
+sed 's/:.*$//g'
+
+sed 's/,$/./g'
+
+<tr 명령어>
+tr '\n' ","
+tr -d '\n'
+
+
+
+
+
+
+echo $FT_NBR1+$FT_NBR2 | tr "mrdoc\'\"\?\!\\" "0123402341" | xargs echo "obase=13;ibase=5;" | bc | tr "0123456789ABC" "gtaio luSnemf"
