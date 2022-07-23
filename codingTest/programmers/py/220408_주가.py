@@ -23,12 +23,26 @@ def solution(prices):
     
     for i in range(len(prices)):
         for j in range(i+1, len(prices)):
-            if prices[i] <= prices[j]: answer[i] += 1
-            else: 
-                answer[i] += 1
+            answer[i] += 1
+            if prices[i] > prices[j]:
                 break
             
     return answer
 
 
-# 3rd try
+# 3rd try (2022.07.21)
+def solution(prices):
+    answer = []
+     = lenprices)
+    for price in range(l)
+        idx = 1
+        count = 0
+        while price + idx < l:
+            if prices[price] > prices[price + idx]:
+                count += 1
+                break
+            else:
+                idx += 1
+                count += 1
+        answer.append(count)
+    return answer
