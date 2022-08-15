@@ -1,17 +1,21 @@
 # https://programmers.co.kr/learn/courses/30/lessons/12905
 
-# 우선 주어진 board에서 가장 크게 만들 수 있는 변(maximum)을 구하는 데까지는 완료
-# maximum -> 1 의 루프에서 정사각형을 찾으면 return하는 방식으로 해보려고 하는데, 정사각형 어떻게 찾지ㅎㅎ
-# 더 생각해보자!
 def solution(board):
-    height = len(board)
-    width = len(board[0])
-    total = sum([sum(x) for x in board])
-    if total == 1: return 1
-    
-    maximum = int(max**1/2) if (int(max**1/2) < height or int(max**1/2) < width) else height if height < width
-    for i in range(maximum,0,-1):
-        for j in range(height-i+1):
-            if [1]*i in board[j]:
-                
-    return 0
+    #각 칸을 맨우측아래칸으로 한 가능한 가장 큰 정사각형 변의 길이를 담을 2차원 배열 bs 생성 및 초기화
+    bs = []
+    for i in range(len(board)):
+        bs.append([0] * len(board[0]))
+    #첫 줄 계산
+    for y in range(len(board[0])):
+        bs[0][y] = board[0][y]
+    #두 번째 줄 이후 계산
+    for x in range(1, len(board)):
+        bs[x][0] = board[x][0]
+        for y in range(1, len(board[0])):
+            if board[x][y] == 0:
+                bs[x][y] = 0
+            else:
+                bs[x][y] = min(bs[x-1][y-1], bs[x-1][y], bs[x][y-1]) + 1
+    #bs 중 가장 큰 수 찾기
+    side = max(map(max, bs))
+    return side * side
