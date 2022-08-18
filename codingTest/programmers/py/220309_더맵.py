@@ -1,5 +1,41 @@
 # https://programmers.co.kr/learn/courses/30/lessons/42626
 
+
+# 3rd try
+# 가장 작은 수를 [0]으로 하는 heap (import heapq) 사용
+# 3-1
+import heapq
+
+def solution(scoville, K):
+    answer = 0
+    heapq.heapify(scoville)
+    
+    while True:
+        if scoville[0] >= K:
+            break
+        if len(scoville) < 2:
+            return -1
+        heapq.heappush(scoville, heapq.heappop(scoville) + heapq.heappop(scoville) * 2)
+        answer += 1
+    return answer
+
+
+# 3-2
+import heapq
+
+def solution(scoville, K):
+    answer = 0
+    heapq.heapify(scoville)
+    
+    while scoville[0] < K and len(scoville) > 1:
+        heapq.heappush(scoville, heapq.heappop(scoville) + heapq.heappop(scoville) * 2)
+        answer += 1
+    if scoville[0] < K:
+        return -1
+    return answer
+
+# ========================================================
+
 # 1st try
 # 정확성은 pass, 효율성은 모두 fail
 def solution(scoville, K):
