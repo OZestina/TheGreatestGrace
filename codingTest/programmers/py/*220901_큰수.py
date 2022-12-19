@@ -1,5 +1,43 @@
 #https://school.programmers.co.kr/learn/courses/30/lessons/42883
 
+# 22.12.19 다시 try
+# 3rd try => 조금 더 나아졌지만 시간초과로 실패
+def next_num(answer, k, number):
+    
+    if len(number) - k == 1:
+        return [answer + max(number), 0, ""]
+    
+    pos = number.index(max(number[:k+1]))
+    answer += number[pos]
+    number = number[pos+1:]
+    k -= pos
+    return [answer, k, number]
+    
+def solution(number, k):
+    answer = ''
+    
+    while k > 0:
+        answer, k, number = next_num(answer, k, number)
+        
+    return answer + number
+
+
+
+# 4th try => 다른 사람 풀이 참고, 통과!
+def solution(number, k):
+    answer = []
+    
+    for n in number:
+        while answer and n > answer[-1] and k > 0:
+            answer.pop()
+            k -= 1
+        answer.append(n)
+    
+    return ''.join(answer[:len(answer) - k])
+
+
+# =================================================================
+
 # 1st try => fail (time out)
 # number를 자꾸 업데이트해서 느린가?
 def solution(number, k):
@@ -31,3 +69,4 @@ def solution(number, k):
     for p in pos:
         answer += number[p]
     return answer
+
