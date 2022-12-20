@@ -24,6 +24,7 @@ def solution(number, k):
 
 
 # 4th try => 다른 사람 풀이 참고, 통과!
+# stack으로 바꿔서 하는 걸 생각을 못했다. 초기 내용으로 주어지는 answer = ''에 너무 매몰되지 말자!
 def solution(number, k):
     answer = []
     
