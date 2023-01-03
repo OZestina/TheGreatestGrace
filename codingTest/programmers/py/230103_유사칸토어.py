@@ -1,4 +1,4 @@
-# 
+# https://school.programmers.co.kr/learn/courses/30/lessons/148652#
 
 # 1st try => 시간초과
 # 문자열로 모두 바꿔서 세보려고 했으나 예상대로 실패
@@ -18,7 +18,8 @@ def solution(n, l, r):
     return arr[-1][l-1 : r].count('1')
   
   
-# 2nd try => 실패 어디서 잘못됐으려나
+# 2nd try
+# position(new_l, new_r) 다시 잡는 부분에서 좀 헷갈렸다. 역시 다양한 테케가 중요해
 def count_one(n, l, r):
     answer = 0
     
@@ -33,18 +34,14 @@ def count_one(n, l, r):
             continue
     
         s, e = how_big * i + 1, how_big * (i + 1)
-        print(n, l, ":", s, "/", r, ":", e)
         if l > e or r < s:      # 범위 해당 안되는 경우 패스
-            print("pass")
             continue
         elif l <= s and e <= r:   # 범위 모두 포함 -> 가능한 모든 1의 개수
             answer += 4 ** (n - 1)
-            print("all", answer)
         else:
-            new_l = (max(l, s) - 1) % 5 + 1
-            new_r = (min(r, e) - 1) % 5 + 1
+            new_l = (max(l, s) - 1) % how_big + 1
+            new_r = (min(r, e) - 1) % how_big + 1
             answer += count_one(n - 1, new_l, new_r)
-            print(new_l, new_r, answer)
     return answer
 
 def solution(n, l, r):
