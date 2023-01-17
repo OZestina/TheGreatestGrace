@@ -84,3 +84,37 @@ def solution(info, query):
         
     return answer
 
+
+# 3rd try (23.01.17) => 효율성 실패
+# query 확인 부분을 더 빨리 해야한다
+def solution(info, query):
+    answer = []
+    
+    lan = dict()
+    job = dict()
+    exp = dict()
+    food = dict()
+    test = dict()
+    for i in range(len(info)):
+        temp = info[i].split()
+        lan[i] = temp[0]
+        job[i] = temp[1]
+        exp[i] = temp[2]
+        food[i] = temp[3]
+        test[i] = int(temp[4])
+    
+    for q in query:
+        count = 0
+        temp = q.split()
+        
+        for i in range(len(info)):
+            if lan[i] == temp[0] or temp[0] == '-':
+                if job[i] == temp[2] or temp[2] == '-':
+                    if exp[i] == temp[4] or temp[4] == '-':
+                        if food[i] == temp[6] or temp[6] == '-':
+                            if test[i] >= int(temp[7]):
+                                count += 1
+                                
+        answer.append(count)
+        
+    return answer
