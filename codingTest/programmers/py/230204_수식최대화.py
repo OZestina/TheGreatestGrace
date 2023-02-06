@@ -38,3 +38,19 @@ def solution(expression):
         answer.append(abs(calculate(oper[:], i)))
     
     return max(answer)
+
+
+# 다른 사람의 풀이
+# 계산 우선순위를 위해 괄호 삽입. split(연산자)로 진행한게 멋지다
+def solution(expression):
+    operations = ["+-*", "+*-", "-+*", "-*+", "*+-", "*-+"]
+    answer = []
+    for op in operations:
+        a = op[0]
+        b = op[1]
+        temp_list = []
+        for e in expression.split(a):
+            temp = [f"({i})" for i in e.split(b)]
+            temp_list.append(f'({b.join(temp)})')
+        answer.append(abs(eval(a.join(temp_list))))
+    return max(answer)
