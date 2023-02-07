@@ -118,3 +118,65 @@ def solution(info, query):
         answer.append(count)
         
     return answer
+
+
+# 4th try (23.02.07) => fail...
+from collections import defaultdict
+
+def insert_dic(lst, n):
+    if lst == []:
+        return [n]
+    for i in range(len(lst)):
+        if n < lst[i]:
+            lst.insert(i, n)
+            return lst
+    lst.append(n)
+    return lst
+
+
+def check_key(s, key):
+    for i in range(4):
+        if s[i] != '-' and s[i] != key[i]:
+            return 0
+    return 1
+    
+    
+def count_grade(lst, grade):
+    l = len(lst)
+    for i in range(len(lst)):
+        if lst[i] >= grade:
+            return len(lst) - i
+    return 0
+    
+    
+def solution(info, query):
+    
+    answer = []
+    
+    #각 경우마다 점수 정렬삽입
+    dic = defaultdict(list)
+    for i in info:
+        arr = i.split()
+        temp = arr[0][0] + arr[1][0] + arr[2][0] + arr[3][0]
+        dic[temp] = insert_dic(dic[temp], int(arr[4]))
+    
+    for q in query:
+        arr = q.replace("and", "").split()
+        temp = arr[0][0] + arr[1][0] + arr[2][0] + arr[3][0]
+        grade = int(arr[4])
+        count = 0
+        if temp == '----':
+            for key in dic:
+                count += count_grade(dic[key], grade)
+            answer.append(count)
+        elif '-' not in arr:
+            answer.append(count_grade(dic[temp], grade))
+        else:
+            for key in dic:
+                if check_key(temp, key):
+                    count += count_grade(dic[key], grade)
+                    
+            answer.append(count)
+            
+    
+    return answer
