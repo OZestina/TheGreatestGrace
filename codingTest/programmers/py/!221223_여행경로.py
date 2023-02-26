@@ -1,11 +1,6 @@
 # https://school.programmers.co.kr/learn/courses/30/lessons/43164?itm_content=course14743#
 
 # 1st try
-# 
-
-
-# 2nd try (다른 사람의 풀이) => 아직 안봄..! 봐야함!!
-
 def solution(tickets):
     routes = {}
     for t in tickets:
@@ -24,3 +19,6 @@ def solution(tickets):
             stack.append(routes[top][-1])
             routes[top] = routes[top][:-1]
     return path[::-1]
+
+
+# 2nd try (다른 사람의 풀이) => 아직 안봄..! 봐야함!!
