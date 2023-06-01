@@ -1,18 +1,13 @@
 //Point.cpp
 
-#ifndef __POINT_H_
-#define __POINT_H_
-
 #include <iostream>
+#include "Point.h"
 using namespace std;
 
-class Point
-{
-private:
-	int xpos, ypos;
-public:
-	Point(int x=0, int y=0);
-	friend ostream& operator<< (ostream& os, const Point& pos);
-};
+Point::Point(int x, int y) : xpos(x), ypos(y) { }
 
-#endif
+ostream& operator<<(ostream& os, const Point& pos)
+{
+	os<<'['<<pos.xpos<<", ",pos.ypos<<']'<<endl;
+	return os;
+}
