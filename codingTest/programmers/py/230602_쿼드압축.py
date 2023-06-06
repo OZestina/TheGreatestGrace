@@ -50,3 +50,32 @@ def solution(arr):
     
     return count_0_1(arr) # 0, 1 count
     
+
+    
+# 다른 사람의 풀이
+# 재귀를 이용해 큰 사각형부터 확인, 숫자가 다를 경우 작은 사각형을 검사하는 방식
+# 코드도 간결하고 연산도 적다
+
+def solution(arr):
+    answer = [0, 0]
+
+    def check(size, x, y):
+        if size == 1:
+            answer[arr[y][x]] += 1
+            return
+        else:
+            first = arr[y][x]
+
+            for dy in range(size):
+                for dx in range(size):
+                    if first != arr[y + dy][x + dx]:
+                        check(size // 2, x, y)
+                        check(size // 2, x + size // 2, y)
+                        check(size // 2, x, y + size // 2)
+                        check(size // 2, x + size // 2, y + size // 2)
+                        return
+            answer[first] += 1
+    check(len(arr),0,0)
+
+
+    return answer
