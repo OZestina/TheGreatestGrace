@@ -40,16 +40,6 @@ export class UserService {
         return found;
     }
 
-    // getUserById(id: string): User {
-    //     const found = this.users.find((user) => user.id === id);
-
-    //     if (!found) {
-    //         throw new NotFoundException(`Can't find User with id ${id}`);
-    //     }
-
-    //     return found;
-    // }
-
     async deleteUser(id: number, user: User): Promise<void> {
         const result = await this.userRepository.delete({id, user});
 
@@ -57,11 +47,6 @@ export class UserService {
             throw new NotFoundException(`Can't find User with id ${id}`)
         }
     }
-
-    // deleteUser(id: string): void {
-    //     const found = this.getUserById(id);
-    //     this.users = this.users.filter((user) => user.id !== found.id);
-    // }
 
 
     async updateUserStatus(id: number, status: UserStatus): Promise<User> {
@@ -72,10 +57,4 @@ export class UserService {
 
         return user;
     }
-    // updateUserStatus(id: string, status: UserStatus): User {
-    //     const user = this.getUserById(id);
-    //     user.status = status;
-    //     return user;
-    // }
-
 }
