@@ -37,10 +37,8 @@ export class UserController {
 
     @Post()
     @UsePipes(ValidationPipe)
-    createUser(@Body() createUserDto: CreateUserDto,
-    @GetUser() user:User): Promise<User> {
-        this.logger.verbose(`User ${user.username} creating a new user. 
-        Payload: ${JSON.stringify(createUserDto)} `)
+    createUser(@Body() createUserDto: CreateUserDto, @GetUser() user:User): Promise<User> {
+        this.logger.verbose(`User ${user.username} creating a new user. Payload: ${JSON.stringify(createUserDto)} `)
         return this.userService.createUser(createUserDto, user);
     }
 
