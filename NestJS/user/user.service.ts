@@ -10,28 +10,28 @@ import { User } from 'src/auth/user.entity';
 export class UserService {
     constructor(
         @InjectRepository(UserRepository)
-        private boardRepository: UserRepository,
+        private userRepository: UserRepository,
     ) { }
 
     async getAllUser(
         user: User
     ): Promise<User[]> {
-        const query = this.boardRepository.createQueryBuilder('user');
+        const query = this.userRepository.createQueryBuilder('user');
 
         query.where('user.userId = :userId', { userId: user.id});
 
-        const boards = await query.getMany();
+        const users = await query.getMany();
 
-        return boards;
+        return users;
     }
 
   
     createUser(createUserDto: CreateUserDto, user: User): Promise<User> {
-        return this.boardRepository.createUser(createUserDto, user);
+        return this.userRepository.createUser(createUserDto, user);
     }
 
     async getUserById(id: number): Promise<User> {
-        const found = await this.boardRepository.findOne(id);
+        const found = await this.userRepository.findOne(id);
 
         if (!found) {
             throw new NotFoundException(`Can't find User with id ${id}`);
@@ -41,7 +41,7 @@ export class UserService {
     }
 
     // getUserById(id: string): User {
-    //     const found = this.boards.find((user) => user.id === id);
+    //     const found = this.users.find((user) => user.id === id);
 
     //     if (!found) {
     //         throw new NotFoundException(`Can't find User with id ${id}`);
@@ -51,7 +51,7 @@ export class UserService {
     // }
 
     async deleteUser(id: number, user: User): Promise<void> {
-        const result = await this.boardRepository.delete({id, user});
+        const result = await this.userRepository.delete({id, user});
 
         if (result.affected === 0) {
             throw new NotFoundException(`Can't find User with id ${id}`)
@@ -60,7 +60,7 @@ export class UserService {
 
     // deleteUser(id: string): void {
     //     const found = this.getUserById(id);
-    //     this.boards = this.boards.filter((user) => user.id !== found.id);
+    //     this.users = this.users.filter((user) => user.id !== found.id);
     // }
 
 
@@ -68,7 +68,7 @@ export class UserService {
         const user = await this.getUserById(id);
 
         user.status = status;
-        await this.boardRepository.save(user);
+        await this.userRepository.save(user);
 
         return user;
     }
