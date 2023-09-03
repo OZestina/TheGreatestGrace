@@ -8,7 +8,7 @@ import { CreateUserDto } from "./dto/create-user.dto";
 export class UserRepository extends Repository<User> {
 
     async createUser(createUserDto: CreateUserDto, user: User) : Promise<User> {
-        const {title, description} = createUserDto;
+        const {username, profileurl} = createUserDto;
 
         const user = this.create({ 
             title, 
@@ -17,7 +17,14 @@ export class UserRepository extends Repository<User> {
             user
         })
 
-        await this.save(user);
+        try {
+            await this.save(user);
+        } catch (error) {
+            if (error.code == '23505')
+                throw new ConflictException('Existing username');
+            else
+                throw new InternalServerErrorException();
+        }
         return user;
     }
 }
