@@ -14,10 +14,6 @@ export class UserController {
     private logger = new Logger('User');
     constructor(private userService: UserService) { }
 
-    // @Get('/')
-    // getAllUser(): User[] {
-    //     return this.userService.getAllUser();
-    // }
 
     @Get()
     getAllUser(
@@ -26,14 +22,6 @@ export class UserController {
         this.logger.verbose(`User ${user.username} trying to get all user`);
         return this.userService.getAllUser(user);
     }
-
-    // @Post()
-    // @UsePipes(ValidationPipe)
-    // createUser(
-    //     @Body() createUserDto: CreateUserDto
-    // ): User {
-    //     return this.userService.createUser(createUserDto);
-    // }
 
     @Post()
     @UsePipes(ValidationPipe)
@@ -47,22 +35,12 @@ export class UserController {
         return this.userService.getUserById(id);
     }
 
-    // @Get('/:id')
-    // getUserById(@Param('id') id: string): User {
-    //     return this.userService.getUserById(id)
-    // }
-
     @Delete('/:id')
     deleteUser(@Param('id', ParseIntPipe) id,
     @GetUser() user:User
     ): Promise<void> {
         return this.userService.deleteUser(id, user);
     }
-
-    // @Delete('/:id')
-    // deleteUser(@Param('id') id: string): void {
-    //     this.userService.deleteUser(id);
-    // }
     
     @Patch('/:id/status')
     updateUserStatus(
@@ -71,14 +49,5 @@ export class UserController {
     ) {
         return this.userService.updateUserStatus(id, status);
     }
-
-
-    // @Patch('/:id/status')
-    // updateUserStatus(
-    //     @Param('id') id: string,
-    //     @Body('status', UserStatusValidationPipe) status: UserStatus
-    // ) {
-    //     return this.userService.updateUserStatus(id, status);
-    // }
 
 }
