@@ -3,19 +3,20 @@ import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "t
 import { UserStatus } from "./user-status.enum";
 
 @Entity()
+@Unique(['username'])
 export class User extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number;
 
     @Column()
-    title: string;
+    username: string;
 
     @Column()
-    description: string;
+    profileurl: string;
 
     @Column()
     status: UserStatus;
 
-    @ManyToOne(type => User, user => user.boards, { eager: false })
-    user: User;
+    // @ManyToOne(type => User, user => user.boards, { eager: false })
+    // user: User;
 }
