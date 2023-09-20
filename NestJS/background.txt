@@ -24,15 +24,60 @@ Service
   - 컨트롤러에서 데이터 유효성 체크, 데이터베이스 아이템 생성 등의 작업 처리
   - 종속성 주입(Controller 생성자에서 private로 생성 등)으로 사용됨
 
-Entity
-  - 
-
-Repository
-  - 
-
 DTO (Data Transfer Object)
   - 계층간 데이터 교환을 위한 객체, 데이터가 네트워크를 통해 전송되는 방법 정의
   - DB에서 데이터를 얻어 Service나 Controller에 전달할 때 사용
   - interface나 class를 이용해 정의 가능 (Nest JS에서는 class 추천)
     > class는 런타임에서 작동하기 때문에 파이프같은 기능을 이용할 때 더 유용함
   - 데이터 유효성을 체크하는데 효율적 (더 안정적인 코드..!)
+
+Pipe
+  - @Injectable() 데코레이터로 주석이 달린 클래스
+  - data transformation, data validation을 위해 사용
+  - controller 경로처리기에 의해 처리되는 인수에 대해 작동
+  - 메소드로 향하는 인수를 수신하고 이에 대해 작동
+  - Handler level
+    > @UsePipes() 데코레이터 이용
+    > 모든 파라미터에 적용
+  - Parameter level
+    > 파라미터 하나에만 사용
+    > @Param('id', ParseIntPipe) id: number
+  - Global level
+    > 애플리케이션 레벨의 파이프, 클라이언트에서 들어오는 모든 요청에 적용
+    > main.ts에 추가해줌 (app.useGlobalPipes(사용할 파이프명);
+  - Built-in pipe
+    > ValidationPipe
+    > ParseIntPipe
+    > ParseBoolPipe
+    > ParseArrayPipe
+    > ParseUUIDPipe
+    > DefaultValuePipe
+  - 그 외 커스텀 파이프 생성 시 class-validator, class-transformer 모듈 필요 (다운 필요)
+    > 모든 파이프는 implements PipeTransform 해서 진행해야함
+    > validation decorator 사용해서 진행
+
+
+TypeORM (Object Relational Mapping)
+  - node.js에서 실행되고 TypeScript로 작성된 객체 관계형 매퍼 라이브러리
+  - 모델을 기반으로 DB 테이블 체계를 자동으로 생성
+  - 테이블 간의 매핑 생성
+  - ORM: 객체-RDB데이터를 자동으로 변형 및 연결하는 작업
+    > 객체와 데이터베이스의 변형에 유연하게 사용할 수 있다
+
+
+Entity
+  - @Entity() 데코레이터 사용
+  - TypeORM을 사용할 때 
+
+Repository
+  - Entity 객체와 함께 작동하며 Entity 찾기, 삽입, 업데이트, 삭제 등을 처리
+  - DB 작업과 관련된 내용은 service가 아닌 repository에서 처리 (repository 패턴)
+  - 생성 시 extends Repository<엔티티클래스> 해줌 => Find, Insert, Delete 등 엔티티 컨트롤 가능
+  - @EntityRepository(엔티티클래스) 데코레이터 사용
+    > 클래스를 커스텀 저장소로 선언하는데 사용
+  - official doc: http://typeorm.delightul.studio/classos/_repository_repository_.repository.html
+
+
+
+암호화
+  - bcrypt
