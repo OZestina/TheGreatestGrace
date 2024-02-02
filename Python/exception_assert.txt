@@ -1,0 +1,45 @@
+# Exception
+
+import traceback
+
+try:
+    처리
+    raise 예외 발생
+except [예외 클래스] as e:
+    예외 처리
+    print(traceback.format_exc()) # 발생한 예외의 종류와 발생 위치 출력
+    raise e #예외 재전송
+else:
+    정상 종료 시의 처리
+finally:
+    종료 시 항상 수행할 처리
+
+
+예외 종류
+1. AttributeError
+   - 존재하지 않는 속성 지정 (메서드 접근 등)
+   - 'asdf'.a
+2. IndexError
+  - 존재하지 않는 범위의 인덱스
+3. KeyError
+  - 존재하지 않은 키 (딕셔너리)
+4. TypeError
+  - 지원하지 않는 타입
+  - len(3)
+5. ValueError
+  - 인수타입 or 값이 올바르지 않을 때
+  - x = int("one")
+6. ZeroDivisionError
+7. Exception
+8. BaseException
+  - 최상위 슈퍼 클래스 (Exception의 슈퍼클래스)
+
+
+# assertiobn
+실행 시 예상한 조건을 만족하지 않을 때 예외를 발생시켜 처리를 중단하는 기능
+assert [False이면 잘못된 조건] [전달할 메시지]
+
+def sum_abs(x, y):
+  val = abs(x) + y
+  assert val >= 0, "계산 결과가 음수입니다."
+  return val
