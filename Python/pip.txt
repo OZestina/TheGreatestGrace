@@ -1,0 +1,16 @@
+서드파티 라이브러리 저장소 공개: Pypi, https://pypi.org
+
+# install, uninstall
+pip install [라이브러리명]
+pip uninstall [라이브러리명]
+
+# update
+pip install -U [라이브러리명]
+
+# get installed library
+pip freeze
+pip freeze > requirement.txt
+
+# install/uninstall library from file
+pip install -r < requirement.txt
+pip uninstall -r < requirement.txt
